@@ -19,7 +19,8 @@
                 "ecmel.vscode-html-css",
                 "Zignd.html-css-class-completion",
                 "lukas-tr.materialdesignicons-intellisense",
-                "Tyriar.sort-lines"
+                "Tyriar.sort-lines",
+                "astro-build.astro-vscode"
             ]
         }
     },
