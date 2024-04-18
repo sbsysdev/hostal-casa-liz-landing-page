@@ -11,10 +11,13 @@
     },
     "dependencies": {
         "@astrojs/check": "^0.5.10",
+        "@mdi/js": "^7.4.47",
         "astro": "^4.6.2",
         "typescript": "^5.4.5"
     },
     "devDependencies": {
-        "prettier": "^3.2.5"
+        "@sbsys/sb-scss": "^1.1.0",
+        "prettier": "^3.2.5",
+        "sass": "^1.75.0"
     }
 }

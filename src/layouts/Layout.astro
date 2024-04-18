@@ -1,51 +1,169 @@
 ---
 interface Props {
+    lang?: string;
     title: string;
 }
 
-const { title } = Astro.props;
+const { lang = 'es', title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Astro description" />
+        <meta name="description" content="Hostal Casa Liz" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+            rel="stylesheet"
+        />
+
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
     </head>
+
     <body>
         <slot />
     </body>
 </html>
-<style is:global>
+
+<style is:global lang="scss">
+    @use '@sbsys/sb-scss' as sb;
+
+    $palette: (
+        base: (
+            10: 98% 0.01 228,
+            20: 88% 0.01 228,
+            30: 78% 0.01 228,
+            40: 68% 0.01 228,
+            50: 58% 0.01 228,
+            60: 48% 0.01 228,
+            70: 28% 0.01 228,
+            80: 18% 0.01 228,
+            90: 8% 0.01 228,
+        ),
+        primary: (
+            10: 98% 0.09 208,
+            20: 88% 0.09 208,
+            30: 78% 0.09 208,
+            40: 68% 0.09 208,
+            50: 58% 0.09 208,
+            60: 48% 0.09 208,
+            70: 28% 0.09 208,
+            80: 18% 0.09 208,
+            90: 8% 0.09 208,
+        ),
+        secondary: (
+            10: 98% 0.23 28,
+            20: 88% 0.23 28,
+            30: 78% 0.23 28,
+            40: 68% 0.23 28,
+            50: 58% 0.23 28,
+            60: 48% 0.23 28,
+            70: 28% 0.23 28,
+            80: 18% 0.23 28,
+            90: 8% 0.23 28,
+        ),
+    );
+
+    $sizes: (
+        border: (
+            xs: 1px,
+            sm: 2px,
+            md: 3px,
+            lg: 4px,
+            xl: 5px,
+            2xl: 6px,
+            3xl: 7px,
+            4xl: 8px,
+        ),
+        space: (
+            xs: 0.5rem,
+            sm: 1rem,
+            md: 1.5rem,
+            lg: 2rem,
+            xl: 3rem,
+            2xl: 4rem,
+            3xl: 5rem,
+            4xl: 6rem,
+        ),
+        element: (
+            xs: 8rem,
+            sm: 10rem,
+            md: 12rem,
+            lg: 14rem,
+            xl: 18rem,
+            2xl: 22rem,
+            3xl: 26rem,
+            4xl: 30rem,
+        ),
+        screen: (
+            xs: 40rem,
+            sm: 44rem,
+            md: 48rem,
+            lg: 56rem,
+            xl: 64rem,
+            2xl: 72rem,
+            3xl: 80rem,
+            4xl: 88rem,
+        ),
+    );
+
+    $fonts: (
+        weight: (
+            xs: lighter,
+            sm: 300,
+            md: normal,
+            lg: 500,
+            xl: bolder,
+        ),
+        family: (
+            main: (
+                "'Montserrat'",
+                sans-serif,
+            ),
+            number: (
+                "'Roboto Mono'",
+                monospace,
+            ),
+        ),
+        size: (
+            xs: 0.75rem,
+            sm: 0.875rem,
+            md: 1rem,
+            lg: 1.25rem,
+            xl: 1.5rem,
+            2xl: 2rem,
+            3xl: 4rem,
+            4xl: 8rem,
+        ),
+    );
+
     :root {
-        --accent: 136, 58, 234;
-        --accent-light: 224, 204, 250;
-        --accent-dark: 49, 10, 101;
-        --accent-gradient: linear-gradient(
-            45deg,
-            rgb(var(--accent)),
-            rgb(var(--accent-light)) 30%,
-            white 60%
-        );
+        @include sb.generate-fonts($fonts);
+        @include sb.generate-palette($palette);
+        @include sb.generate-sizes($sizes);
     }
+
+    * {
+        @include sb.normalize;
+    }
+
     html {
-        font-family: system-ui, sans-serif;
-        background: #13151a;
-        background-size: 224px;
+        font-size: 16px;
     }
-    code {
-        font-family:
-            Menlo,
-            Monaco,
-            Lucida Console,
-            Liberation Mono,
-            DejaVu Sans Mono,
-            Bitstream Vera Sans Mono,
-            Courier New,
-            monospace;
+
+    body {
+        @include sb.flex;
+        @include sb.font(family main, weight md, size md);
+        @include sb.gap(y space md);
+        min-height: 100svh;
+
+        @include sb.bg-color(base, 10);
+        @include sb.font-color(base, 70);
     }
 </style>

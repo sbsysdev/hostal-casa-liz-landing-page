@@ -15,7 +15,11 @@
                 "eamodio.gitlens",
                 "redhat.vscode-yaml",
                 "esbenp.prettier-vscode",
-                "DotJoshJohnson.xml"
+                "DotJoshJohnson.xml",
+                "ecmel.vscode-html-css",
+                "Zignd.html-css-class-completion",
+                "lukas-tr.materialdesignicons-intellisense",
+                "Tyriar.sort-lines"
             ]
         }
     },
