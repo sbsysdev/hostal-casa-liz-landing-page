@@ -1,0 +1,27 @@
+{
+    "name": "Hostal Casa Liz Landing Page",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "app",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "mhutchie.git-graph",
+                "eamodio.gitlens",
+                "redhat.vscode-yaml",
+                "esbenp.prettier-vscode",
+                "DotJoshJohnson.xml"
+            ]
+        }
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,readonly,type=bind",
+        "source=${localEnv:USERPROFILE}/.ssh,target=/home/node/.ssh,readonly,type=bind"
+    ],
+    "postCreateCommand": "git config --global --add safe.directory /workspaces/hostal-casa-liz-landing-page && git config --global core.autocrlf true"
+}
