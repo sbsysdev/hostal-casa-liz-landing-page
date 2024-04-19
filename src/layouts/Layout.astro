@@ -1,4 +1,6 @@
 ---
+import { Header } from '@/components';
+
 interface Props {
     lang?: string;
     title: string;
@@ -27,6 +29,8 @@ const { lang = 'es', title } = Astro.props;
     </head>
 
     <body>
+        <Header />
+
         <slot />
     </body>
 </html>
@@ -163,7 +167,7 @@ const { lang = 'es', title } = Astro.props;
         @include sb.gap(y space md);
         min-height: 100svh;
 
-        @include sb.bg-color(base, 10);
+        @include sb.bg-color(base, 30);
         @include sb.font-color(base, 70);
     }
 </style>

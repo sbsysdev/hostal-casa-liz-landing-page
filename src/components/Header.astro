@@ -1,0 +1,39 @@
+---
+import { mdiHoopHouse } from '@mdi/js';
+import Icon from './Icon.astro';
+---
+
+<header>
+    <a href="/">
+        <Icon path={mdiHoopHouse} />
+    </a>
+
+    <nav>
+        <ul>
+            <li><a href="#">Inicio</a></li>
+
+            <li><a href="#">Servicios</a></li>
+
+            <li><a href="#"></a>Quienes Somos</li>
+
+            <li><a href="#"></a>Contacttos</li>
+        </ul>
+    </nav>
+</header>
+
+<style lang="scss">
+    @use '@sbsys/sb-scss' as sb;
+
+    header {
+        @include sb.flex(row, center);
+        @include sb.gap(all space sm);
+        @include sb.padding(all space sm);
+        position: sticky;
+        top: 0;
+    }
+
+    nav {
+        @include sb.flex(row, center, center);
+        flex-grow: 1;
+    }
+</style>
