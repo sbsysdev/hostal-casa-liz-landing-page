@@ -4,9 +4,11 @@
     <div class="welcome">
         <h1>Hostal Casa Liz</h1>
 
+        <p>Ubicado en el centro del corazón de la vieja Managua, lo que permite estar cerca de:</p>
+
         <p>
-            Estamos ubicados en el corazón de Managua. Cercanos a Metrocentro, Plaza Inter, Mercado
-            Oriental, Hospital Cruz Azul, Hospital Bautista & Hospital Militar
+            Metrocentro, Plaza Inter, Mercado Oriental, Hospital Cruz Azul, Hospital Bautista,
+            Hospital Militar, y asolo 10 minutos del centro de recreación Puerto Salvador Allende
         </p>
     </div>
 </section>
@@ -24,8 +26,8 @@
 
         background-image: radial-gradient(
                 circle at 0% 50%,
-                oklch(sb.color(primary, 50) / 0.2) 42%,
-                oklch(sb.color(primary, 50) / 0.8) 48%,
+                oklch(sb.color(primary, 50) / 0.2) 40%,
+                oklch(sb.color(primary, 50) / 0.8) 46%,
                 oklch(sb.color(primary, 50) / 1) 80%
             ),
             url('./casa-liz.webp');
@@ -33,7 +35,7 @@
 
     .welcome {
         @include sb.flex(column, center, center);
-        @include sb.font-color(secondary, 10);
+        @include sb.font-color(base, 10);
         @include sb.gap(all space sm);
         @include sb.padding(all space md);
         text-align: center;
@@ -44,7 +46,6 @@
 
         p {
             @include sb.font(size lg);
-            text-align: end;
         }
     }
 </style>

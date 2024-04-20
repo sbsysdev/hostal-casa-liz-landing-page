@@ -1,5 +1,11 @@
+---
+import Fav from './Fav.astro';
+---
+
 <header>
-    <a href="/#welcome" class="home"> Casa Liz </a>
+    <a href="/#welcome" class="home">
+        <Fav />
+    </a>
 
     <nav>
         <ul>
@@ -27,7 +33,7 @@
     }
 
     nav {
-        @include sb.flex(row, center, center);
+        @include sb.flex(row, center, end);
         flex-grow: 1;
     }
 
@@ -58,6 +64,8 @@
     }
 
     a.home {
-        @include sb.font(family title, size lg);
+        @include sb.font(family title, size 4xl);
+        @include sb.padding(y 0);
+        line-height: 1;
     }
 </style>

@@ -1,0 +1,115 @@
+---
+// components
+import Icon from './Icon.astro';
+// assets
+import { mdiCopyright, mdiFacebook, mdiWhatsapp } from '@mdi/js';
+---
+
+<footer id="contacts">
+    <div class="address">
+        <h3>Dirección</h3>
+
+        <p>
+            Del Hospital Bautista 3 cuadras abajo (oeste), 1 al sur, media abajo (oeste)., Managua
+            11116 Nicaragua
+        </p>
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1366.3418261906552!2d-86.26715138733735!3d12.141868398440517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f71560627c68239%3A0xf82b56dbe2a8eb55!2sCasa%20Liz%20Hostal!5e0!3m2!1sen!2sni!4v1713641767698!5m2!1sen!2sni"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="contacts">
+        <h3>contactos</h3>
+
+        <ul class="phones">
+            <li><span>+(505)-2250-9590</span></li>
+
+            <li><span>+(505)-8850-4293</span></li>
+
+            <li><span>+(505)-8534-8392</span></li>
+        </ul>
+
+        <h3>Redes sociales</h3>
+
+        <ul>
+            <li>
+                <a
+                    href="https://www.facebook.com/CasaLizHostal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <Icon path={mdiFacebook} />
+                </a>
+            </li>
+
+            <li>
+                <a href="https://wa.me/50588504293" target="_blank" rel="noopener noreferrer">
+                    <Icon path={mdiWhatsapp} /></a
+                >
+            </li>
+        </ul>
+    </div>
+</footer>
+
+<a href="https://github.com/sbsysdev" target="_blank" rel="noopener noreferrer" class="copyright">
+    <span>Casa Liz</span>
+
+    <Icon path={mdiCopyright} />
+
+    <span>2024</span>
+</a>
+
+<style lang="scss">
+    @use '@sbsys/sb-scss' as sb;
+
+    footer {
+        @include sb.bg-color(base, 70);
+        @include sb.gap(all space lg);
+        @include sb.padding(all space md);
+        @include sb.rounded(all space xs);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .address,
+    .contacts {
+        @include sb.flex;
+        @include sb.gap(all space lg);
+
+        h3 {
+            @include sb.font(family title, size xl);
+            @include sb.font-color(secondary, 20);
+        }
+
+        p,
+        span,
+        a {
+            @include sb.font-color(primary, 20);
+        }
+
+        a {
+            @include sb.font(size 3xl);
+            @include sb.interactable(250ms, 1.1, 0.9);
+        }
+
+        iframe {
+            @include sb.rounded(all space xs);
+            aspect-ratio: 19 / 9;
+            filter: invert(90%);
+        }
+    }
+
+    ul {
+        @include sb.flex(row, center, center);
+        @include sb.gap(all space md);
+        @include sb.padding(x space md);
+    }
+
+    .copyright {
+        @include sb.flex(row, center, center);
+        @include sb.gap(all space xs);
+    }
+</style>
