@@ -8,6 +8,6 @@ export default defineConfig({
         },
     },
     site: 'https://sbsysdev.github.io',
-    base: 'hostal-casa-liz-landing-page',
+    base: '/hostal-casa-liz-landing-page',
     outDir: 'docs',
 });
