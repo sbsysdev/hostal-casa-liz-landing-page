@@ -2,20 +2,21 @@
 // layouts
 import { Layout } from '@/layouts';
 // components
-import { Icon } from '@/components';
-// assets
-import { mdiAccountAlert } from '@mdi/js';
+import { Welcome } from '@/components';
 ---
 
 <Layout title="Hostal Casa Liz - Landing Page">
     <main>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem magni quibusdam
-        perspiciatis dignissimos. Aliquam, harum culpa. Enim libero rerum quia?
+        <Welcome />
     </main>
-
-    <span>Lorem ipsum dolor sit amet.</span>
-
-    <Icon path={mdiAccountAlert} />
 </Layout>
 
-<style lang="scss"></style>
+<style lang="scss">
+    @use '@sbsys/sb-scss' as sb;
+
+    main {
+        @include sb.flex;
+        @include sb.gap(all space sm);
+        flex-grow: 1;
+    }
+</style>

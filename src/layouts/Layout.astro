@@ -1,4 +1,5 @@
 ---
+// components
 import { Header } from '@/components';
 
 interface Props {
@@ -51,17 +52,6 @@ const { lang = 'es', title } = Astro.props;
             90: 8% 0.01 228,
         ),
         primary: (
-            10: 98% 0.09 208,
-            20: 88% 0.09 208,
-            30: 78% 0.09 208,
-            40: 68% 0.09 208,
-            50: 58% 0.09 208,
-            60: 48% 0.09 208,
-            70: 28% 0.09 208,
-            80: 18% 0.09 208,
-            90: 8% 0.09 208,
-        ),
-        secondary: (
             10: 98% 0.23 28,
             20: 88% 0.23 28,
             30: 78% 0.23 28,
@@ -71,6 +61,17 @@ const { lang = 'es', title } = Astro.props;
             70: 28% 0.23 28,
             80: 18% 0.23 28,
             90: 8% 0.23 28,
+        ),
+        secondary: (
+            10: 98% 0.09 208,
+            20: 88% 0.09 208,
+            30: 78% 0.09 208,
+            40: 68% 0.09 208,
+            50: 58% 0.09 208,
+            60: 48% 0.09 208,
+            70: 28% 0.09 208,
+            80: 18% 0.09 208,
+            90: 8% 0.09 208,
         ),
     );
 
@@ -155,6 +156,7 @@ const { lang = 'es', title } = Astro.props;
 
     * {
         @include sb.normalize;
+        line-height: 1.5;
     }
 
     html {
@@ -162,12 +164,19 @@ const { lang = 'es', title } = Astro.props;
     }
 
     body {
+        @include sb.bg-color(base, 10);
         @include sb.flex;
         @include sb.font(family main, weight md, size md);
-        @include sb.gap(y space md);
-        min-height: 100svh;
-
-        @include sb.bg-color(base, 30);
         @include sb.font-color(base, 70);
+        @include sb.gap(all space sm);
+        @include sb.padding(all space sm);
+        margin: 0 auto;
+        max-width: sb.size(screen, 4xl);
+        min-height: 100svh;
+        width: 100%;
+    }
+
+    a {
+        text-decoration: none;
     }
 </style>

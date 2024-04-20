@@ -1,22 +1,19 @@
 ---
-import { mdiHoopHouse } from '@mdi/js';
-import Icon from './Icon.astro';
+
 ---
 
-<header>
-    <a href="/">
-        <Icon path={mdiHoopHouse} />
-    </a>
+<header id="home">
+    <a href="/#home" class="home"> Casa Liz </a>
 
     <nav>
         <ul>
-            <li><a href="#">Inicio</a></li>
+            <li><a href="#home">Inicio</a></li>
 
-            <li><a href="#">Servicios</a></li>
+            <li><a href="#services">Servicios</a></li>
 
-            <li><a href="#"></a>Quienes Somos</li>
+            <li><a href="#about-us">Quienes Somos</a></li>
 
-            <li><a href="#"></a>Contacttos</li>
+            <li><a href="#contacts">Contactos</a></li>
         </ul>
     </nav>
 </header>
@@ -27,13 +24,48 @@ import Icon from './Icon.astro';
     header {
         @include sb.flex(row, center);
         @include sb.gap(all space sm);
-        @include sb.padding(all space sm);
         position: sticky;
         top: 0;
+        z-index: 10;
     }
 
     nav {
         @include sb.flex(row, center, center);
         flex-grow: 1;
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        list-style: none;
+
+        li {
+            display: contents;
+        }
+    }
+
+    a {
+        @include sb.bg-color(primary, 50, true);
+        @include sb.bg-opacity(0);
+        @include sb.font(weight lg);
+        @include sb.font-color(primary, 50);
+        @include sb.padding(x space sm, y space xs);
+        @include sb.rounded(all space xs);
+        text-align: center;
+        text-wrap: nowrap;
+        transition: all 250ms ease-in-out;
+
+        &:hover {
+            @include sb.bg-opacity(0.1);
+        }
+
+        &:active {
+            @include sb.bg-opacity(0.2);
+            transform: scale(0.95);
+        }
+    }
+
+    a.home {
+        @include sb.font(family number, size lg);
     }
 </style>
