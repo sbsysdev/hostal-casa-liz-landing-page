@@ -1,0 +1,58 @@
+---
+// components
+import Section from './Section.astro';
+import ListItem from './ListItem.astro';
+// assets
+import {
+    mdiBunkBed,
+    mdiCarBrakeParking,
+    mdiPlaneCar,
+    mdiSnowflake,
+    mdiTelevisionClassic,
+    mdiWifi,
+} from '@mdi/js';
+---
+
+<Section id="services" title="Nuestro hostal le brindará">
+    <ul>
+        <li>
+            <ListItem
+                icon={mdiPlaneCar}
+                text="Traslado desde el aeropuerto al hostal y a las diferentes terminales"
+            />
+        </li>
+
+        <li>
+            <ListItem
+                icon={mdiSnowflake}
+                text="Cómodas habitaciones con aire acondicionado y ventilador"
+            />
+        </li>
+
+        <li>
+            <ListItem icon={mdiBunkBed} text="Habitaciones compartidas e individuales" />
+        </li>
+
+        <li>
+            <ListItem
+                icon={mdiWifi}
+                text="Conexión WiFi de alta velocidad totalmente gratis en las zonas comunes"
+            />
+        </li>
+
+        <li><ListItem icon={mdiCarBrakeParking} text="Estacionamiento" /></li>
+
+        <li><ListItem icon={mdiTelevisionClassic} text="Televisión por cable" /></li>
+    </ul>
+</Section>
+
+<style lang="scss">
+    @use '@sbsys/sb-scss' as sb;
+
+    ul {
+        @include sb.gap(all space sm);
+        display: grid;
+        grid-template-rows: repeat(5, 1fr);
+        justify-content: center;
+    }
+</style>

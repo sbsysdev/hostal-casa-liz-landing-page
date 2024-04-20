@@ -1,0 +1,30 @@
+---
+interface Props {
+    id: string;
+    title: string;
+}
+
+const { id, title } = Astro.props;
+---
+
+<section id={id}>
+    <h2>{title}</h2>
+
+    <slot />
+</section>
+
+<style lang="scss">
+    @use '@sbsys/sb-scss' as sb;
+
+    section {
+        @include sb.flex;
+        @include sb.gap(all space md);
+        @include sb.padding(x space sm);
+    }
+
+    h2 {
+        @include sb.font(family title, size 2xl);
+        @include sb.font-color(secondary, 50);
+        text-align: center;
+    }
+</style>

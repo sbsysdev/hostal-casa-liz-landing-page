@@ -2,12 +2,14 @@
 // layouts
 import { Layout } from '@/layouts';
 // components
-import { Welcome } from '@/components';
+import { Welcome, Services } from '@/components';
 ---
 
 <Layout title="Hostal Casa Liz - Landing Page">
     <main>
         <Welcome />
+
+        <Services />
     </main>
 </Layout>
 
@@ -16,7 +18,7 @@ import { Welcome } from '@/components';
 
     main {
         @include sb.flex;
-        @include sb.gap(all space sm);
+        @include sb.gap(all space 4xl);
         flex-grow: 1;
     }
 </style>

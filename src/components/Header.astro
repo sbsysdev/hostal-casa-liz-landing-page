@@ -1,17 +1,13 @@
----
-
----
-
-<header id="home">
-    <a href="/#home" class="home"> Casa Liz </a>
+<header>
+    <a href="/#welcome" class="home"> Casa Liz </a>
 
     <nav>
         <ul>
-            <li><a href="#home">Inicio</a></li>
+            <li><a href="#welcome">Inicio</a></li>
 
             <li><a href="#services">Servicios</a></li>
 
-            <li><a href="#about-us">Quienes Somos</a></li>
+            <!-- <li><a href="#about-us">Quienes Somos</a></li> -->
 
             <li><a href="#contacts">Contactos</a></li>
         </ul>
@@ -22,6 +18,7 @@
     @use '@sbsys/sb-scss' as sb;
 
     header {
+        @include sb.bg-color(base, 10);
         @include sb.flex(row, center);
         @include sb.gap(all space sm);
         position: sticky;
@@ -36,16 +33,11 @@
 
     ul {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        list-style: none;
-
-        li {
-            display: contents;
-        }
+        grid-template-columns: repeat(3, 1fr);
     }
 
     a {
-        @include sb.bg-color(primary, 50, true);
+        @include sb.bg-color(secondary, 50, true);
         @include sb.bg-opacity(0);
         @include sb.font(weight lg);
         @include sb.font-color(primary, 50);
@@ -66,6 +58,6 @@
     }
 
     a.home {
-        @include sb.font(family number, size lg);
+        @include sb.font(family title, size lg);
     }
 </style>
