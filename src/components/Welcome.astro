@@ -17,20 +17,40 @@
     @use '@sbsys/sb-scss' as sb;
 
     section {
+        --bg-1: -100%;
+        --bg-2: 50%;
+        --bg-3: 200%;
+
+        @include sb.flex(column, center, center);
         @include sb.rounded(all space xs);
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 4 / 5;
         background-size: cover;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
         overflow: hidden;
 
         background-image: radial-gradient(
                 circle at 0% 50%,
-                oklch(sb.color(primary, 50) / 0.2) 40%,
-                oklch(sb.color(primary, 50) / 0.8) 46%,
-                oklch(sb.color(primary, 50) / 1) 80%
+                oklch(sb.color(primary, 50) / 0.2) var(--bg-1),
+                oklch(sb.color(primary, 50) / 0.8) var(--bg-2),
+                oklch(sb.color(primary, 50) / 1) var(--bg-3)
             ),
             url('/hostal-casa-liz-landing-page/casa-liz.webp');
+
+        @include sb.min-width(5xs) {
+            aspect-ratio: 1;
+        }
+
+        @include sb.min-width(2xs) {
+            aspect-ratio: 16 / 9;
+        }
+
+        @include sb.min-width(2xl) {
+            --bg-1: 40%;
+            --bg-2: 46%;
+            --bg-3: 80%;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     .welcome {
@@ -41,11 +61,21 @@
         text-align: center;
 
         h1 {
-            @include sb.font(family title, size 4xl);
+            @include sb.font(family title, size 2xl);
         }
 
         p {
-            @include sb.font(size lg);
+            @include sb.font(size md);
+        }
+
+        @include sb.min-width(xs) {
+            h1 {
+                @include sb.font(size 4xl);
+            }
+
+            p {
+                @include sb.font(size lg);
+            }
         }
     }
 </style>

@@ -23,12 +23,20 @@ const { icon, text } = Astro.props;
 
     .item {
         @include sb.flex(row, center);
-        @include sb.font(size lg);
+        @include sb.font(size md);
         @include sb.font-color(primary, 50);
         @include sb.gap(all space md);
+
+        @include sb.min-width(xs) {
+            @include sb.font(size lg);
+        }
     }
 
     .icon {
-        @include sb.font(size 3xl);
+        @include sb.font(size 2xl);
+
+        @include sb.min-width(xs) {
+            @include sb.font(size 3xl);
+        }
     }
 </style>

@@ -25,7 +25,7 @@ import {
         <li>
             <ListItem
                 icon={mdiSnowflake}
-                text="Cómodas habitaciones con aire acondicionado y ventilador"
+                text="Cómodas habitaciones con aire acondicionado o ventilador"
             />
         </li>
 
@@ -34,10 +34,7 @@ import {
         </li>
 
         <li>
-            <ListItem
-                icon={mdiWifi}
-                text="Conexión WiFi de alta velocidad totalmente gratis en las zonas comunes"
-            />
+            <ListItem icon={mdiWifi} text="Conexión WiFi en las zonas comunes" />
         </li>
 
         <li><ListItem icon={mdiCarBrakeParking} text="Estacionamiento" /></li>
@@ -50,9 +47,8 @@ import {
     @use '@sbsys/sb-scss' as sb;
 
     ul {
+        @include sb.flex;
         @include sb.gap(all space sm);
-        display: grid;
-        grid-template-rows: repeat(5, 1fr);
-        justify-content: center;
+        margin: 0 auto;
     }
 </style>

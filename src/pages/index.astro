@@ -20,7 +20,11 @@ import { Welcome, Services, Contacts } from '@/components';
 
     main {
         @include sb.flex;
-        @include sb.gap(all space 4xl);
+        @include sb.gap(all space xl);
         flex-grow: 1;
+
+        @include sb.min-width(xl) {
+            @include sb.gap(all space 4xl);
+        }
     }
 </style>

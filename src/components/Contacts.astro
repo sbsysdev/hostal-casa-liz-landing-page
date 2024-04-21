@@ -22,7 +22,7 @@ import { mdiCopyright, mdiFacebook, mdiWhatsapp } from '@mdi/js';
     </div>
 
     <div class="contacts">
-        <h3>contactos</h3>
+        <h3>Teléfonos</h3>
 
         <ul class="phones">
             <li><span>+(505)-2250-9590</span></li>
@@ -52,26 +52,35 @@ import { mdiCopyright, mdiFacebook, mdiWhatsapp } from '@mdi/js';
             </li>
         </ul>
     </div>
+
+    <a
+        href="https://github.com/sbsysdev"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="copyright"
+    >
+        <span>Casa Liz</span>
+
+        <Icon path={mdiCopyright} />
+
+        <span>2024</span>
+    </a>
 </footer>
-
-<a href="https://github.com/sbsysdev" target="_blank" rel="noopener noreferrer" class="copyright">
-    <span>Casa Liz</span>
-
-    <Icon path={mdiCopyright} />
-
-    <span>2024</span>
-</a>
 
 <style lang="scss">
     @use '@sbsys/sb-scss' as sb;
 
     footer {
         @include sb.bg-color(base, 70);
+        @include sb.flex;
         @include sb.gap(all space lg);
         @include sb.padding(all space md);
         @include sb.rounded(all space xs);
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+
+        @include sb.min-width(lg) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     .address,
@@ -106,10 +115,27 @@ import { mdiCopyright, mdiFacebook, mdiWhatsapp } from '@mdi/js';
         @include sb.flex(row, center, center);
         @include sb.gap(all space md);
         @include sb.padding(x space md);
+
+        &.phones {
+            @include sb.flex(column);
+
+            @include sb.min-width(sm) {
+                @include sb.flex(row);
+            }
+
+            @include sb.min-width(lg) {
+                @include sb.flex(column);
+            }
+        }
     }
 
     .copyright {
         @include sb.flex(row, center, center);
+        @include sb.font-color(primary, 20);
         @include sb.gap(all space xs);
+
+        @include sb.min-width(lg) {
+            grid-column: span 2;
+        }
     }
 </style>

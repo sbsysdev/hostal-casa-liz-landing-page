@@ -23,8 +23,12 @@ const { id, title } = Astro.props;
     }
 
     h2 {
-        @include sb.font(family title, size 2xl);
+        @include sb.font(family title, size xl);
         @include sb.font-color(secondary, 50);
         text-align: center;
+
+        @include sb.min-width(xs) {
+            @include sb.font(size 2xl);
+        }
     }
 </style>
