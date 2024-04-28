@@ -25,8 +25,7 @@
         }
     },
     "mounts": [
-        "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,readonly,type=bind",
-        "source=${localEnv:USERPROFILE}/.ssh,target=/home/node/.ssh,readonly,type=bind"
+        "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,readonly,type=bind"
     ],
     "postCreateCommand": "git config --global --add safe.directory /workspaces/hostal-casa-liz-landing-page && git config --global core.autocrlf true"
 }
